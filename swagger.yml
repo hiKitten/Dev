@@ -1,0 +1,1794 @@
+openapi: 3.0.0
+info:
+  title: 'BAS Admin API'
+  description: 'BAS-Admin 后台接口文档'
+  version: 0.1.1
+servers:
+  -
+    url: 'http://admin.adid.fun'
+    description: 公司测试环境
+  -
+    url: 'http://admin.xget.fun'
+    description: 'Local 测试环境'
+  -
+    url: 'http://localhost:21306'
+    description: 'Local 测试环境'
+paths:
+  '/ads/ad/{id}':
+    get:
+      tags:
+        - ads
+      summary: 'Get an ads_ad'
+      operationId: getAd
+      parameters:
+        -
+          name: id
+          in: path
+          description: '广告 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    put:
+      tags:
+        - ads
+      summary: 'Update a new ads_ad'
+      operationId: updateAd
+      parameters:
+        -
+          name: id
+          in: path
+          description: '广告 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: 'Update AdsAd object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ads'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    delete:
+      tags:
+        - ads
+      summary: 'Delete an ads_ad'
+      operationId: deleteAd
+      parameters:
+        -
+          name: id
+          in: path
+          description: '广告 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /ads/ad:
+    post:
+      tags:
+        - ads
+      summary: 'Adds a new ads_ad'
+      operationId: addAd
+      requestBody:
+        description: 'Create AdsAd object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ads'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  '/ads/app/{id}':
+    get:
+      tags:
+        - AdsApp
+      summary: 'Get an ads_app'
+      operationId: getAdsApp
+      parameters:
+        -
+          name: id
+          in: path
+          description: '应用 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    put:
+      tags:
+        - AdsApp
+      summary: 'Update a new ads_app'
+      operationId: updateAdsApp
+      parameters:
+        -
+          name: id
+          in: path
+          description: '应用 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: 'Update AdsAd object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsApp'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    delete:
+      tags:
+        - AdsApp
+      summary: 'Delete an ads_app'
+      operationId: deleteAdsApp
+      parameters:
+        -
+          name: id
+          in: path
+          description: '应用 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /ads/app:
+    post:
+      tags:
+        - AdsApp
+      summary: 'Adds a new ads_app'
+      operationId: addAdsApp
+      requestBody:
+        description: 'Create AdsApp object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsApp'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  '/ads/asset/{id}':
+    get:
+      tags:
+        - AdsAsset
+      summary: 'Get an ads_asset'
+      operationId: getAdsAsset
+      parameters:
+        -
+          name: id
+          in: path
+          description: '素材 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    put:
+      tags:
+        - AdsAsset
+      summary: 'Update a new ads_sset'
+      operationId: updateAdsAsset
+      parameters:
+        -
+          name: id
+          in: path
+          description: '应用 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: 'Update AdsAsset object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsAsset'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    delete:
+      tags:
+        - AdsAsset
+      summary: 'Delete an ads_asset'
+      operationId: deleteAdsAsset
+      parameters:
+        -
+          name: id
+          in: path
+          description: '素材 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /ads/asset:
+    post:
+      tags:
+        - AdsAsset
+      summary: 'Adds a new ads_asset'
+      operationId: addAdsAsset
+      requestBody:
+        description: 'Create AdsAsset object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsAsset'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  '/ads/campaign/{id}':
+    get:
+      tags:
+        - AdsCampaign
+      summary: 'Get an ads_campaign'
+      operationId: getAdsCampaign
+      parameters:
+        -
+          name: id
+          in: path
+          description: '营销活动 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    put:
+      tags:
+        - AdsCampaign
+      summary: 'Update a new ads_campaign'
+      operationId: updateAdsCampaign
+      parameters:
+        -
+          name: id
+          in: path
+          description: '营销活动 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: 'Update AdsAd object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsCampaign'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    delete:
+      tags:
+        - AdsCampaign
+      summary: 'Delete an ads_campaign'
+      operationId: deleteAdsCampaign
+      parameters:
+        -
+          name: id
+          in: path
+          description: '营销活动 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /ads/campaign:
+    post:
+      tags:
+        - AdsCampaign
+      summary: 'Adds a new ads_campaign'
+      operationId: addAdsCampaign
+      requestBody:
+        description: 'Create AdsCampaign object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsCampaign'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  '/ads/group/{id}':
+    get:
+      tags:
+        - AdsGroup
+      summary: 'Get an ads_group'
+      operationId: getAdsGroup
+      parameters:
+        -
+          name: id
+          in: path
+          description: '广告组 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    put:
+      tags:
+        - AdsGroup
+      summary: 'Update a new ads_group'
+      operationId: updateAdsGroup
+      parameters:
+        -
+          name: id
+          in: path
+          description: '广告组 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: 'Update AdsAd object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsGroup'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    delete:
+      tags:
+        - AdsGroup
+      summary: 'Delete an ads_group'
+      operationId: deleteAdsGroup
+      parameters:
+        -
+          name: id
+          in: path
+          description: '广告组 ID. Such as `123`'
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /ads/group:
+    post:
+      tags:
+        - AdsGroup
+      summary: 'Adds a new ads_group'
+      operationId: addAdsGroup
+      requestBody:
+        description: 'Create AdsGroup object'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdsGroup'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /execl/bulk:
+    post:
+      tags:
+        - ExcelBulk
+      summary: 'bulk import [campaign, group, ad, asset] from excel'
+      operationId: excelBulk
+      requestBody:
+        description: 'bulk import [campaign, group, ad, asset] from excel '
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExcelBulk'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+components:
+  schemas:
+    Ads:
+      title: Ads
+      description: Ads
+      required:
+        - title
+        - timeStart
+        - timeEnd
+        - userId
+      properties:
+        title:
+          description: '广告标题: 最长 255，最短 3;  .eg: `测试广告标题`'
+          type: string
+          maximum: 255
+          minimum: 3
+          example: 测试广告标题
+        alias:
+          description: '广告别名: 最长 255;  .eg: `测试广告别名`'
+          type: string
+          maximum: 255
+          example: 测试广告别名
+        timeStart:
+          description: '开启时间: 格式化日期字符串（只支持 Y-m-d H:i:s）;  .eg: `2019-10-12 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-12 00:00:00'
+        timeEnd:
+          description: '结束时间: 格式化日期字符串（只支持 Y-m-d H:i:s）;  .eg: `2019-12-29 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-29 23:59:59'
+        userId:
+          description: '用户id: 必须为 int 必须大于 0;  .eg: `6379`'
+          type: integer
+          format: int32
+          minimum: 1
+          example: 1
+        budget:
+          description: '预算;  .eg: `1203.32`'
+          type: number
+          format: float
+          minimum: 0
+        budgetSchema:
+          description: '预算分配方案;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        progress:
+          description: '投放进度，百分比，该字段动态更新;  .eg: `24.32`'
+          type: number
+          format: float
+          minimum: 0
+        workTimeSwitch:
+          description: '是否全天 0：是；1：否;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+          example: 0
+        workTime:
+          description: '广告投放时间段;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        schedule:
+          description: '排量;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        monitor:
+          description: '监测URLs;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        status:
+          description: '0: 关闭 1:开启 9:测试 -1: 删除;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - -1
+            - 0
+            - 1
+            - 9
+          example: 0
+        extra:
+          description: '扩展设置;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        reConf:
+          description: 'rules engine config;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        priority:
+          description: '优先级;  .eg: `6`'
+          type: integer
+          format: int32
+          maximum: 9
+          minimum: 0
+          example: 6
+        mgtvVar:
+          description: '芒果tv的参数集;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        formatId:
+          description: '广告形式 ID;  .eg: `6`'
+          type: integer
+          format: int32
+          maximum: 9999
+          minimum: 0
+          example: 9
+        supConf:
+          description: '矩阵-光芒广告配置;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        supSwitch:
+          description: '矩阵-光芒广告状态;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+          example: 0
+        supStatus:
+          description: '辅助渠道启停状态(0: 关闭; 1: 正在执行; 2: 执行完成; 3: 中止;);  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        supApp:
+          description: '辅助渠道;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        monitorType:
+          description: '监测方式(0:无; 1:常规第三方监测; 2:无第三方监测; 3:BAS-PDB);  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        assetWidth:
+          description: '素材宽;  .eg: `0`'
+          type: integer
+          format: int32
+          minimum: 0
+          example: 0
+        assetHeight:
+          description: '素材高;  .eg: `0`'
+          type: integer
+          format: int32
+          minimum: 0
+          example: 0
+        filesize:
+          description: 'byte;  .eg: `0`'
+          type: integer
+          format: int32
+          minimum: 0
+          example: 0
+        duration:
+          description: '时长，单位：秒;  .eg: `15.12`'
+          type: number
+          format: float
+          minimum: 0
+          example: 0
+        mimetype:
+          description: 'MIME Type: 最长 50;  .eg: `video/mp4`'
+          type: string
+          maximum: 50
+          example: null
+        url:
+          description: '资源地址，内部资源使用相对地址: 最长 512;  .eg: `http://www.mgtv.com/l/100027673/6918112.html`'
+          type: string
+          maximum: 512
+          example: null
+        cover:
+          description: '资源封面 - 缩略图 使用相对地址: 最长 512;  .eg: `/upload/asset/fe/fee9551f16e7ef55249763f99549ea97.jpg`'
+          type: string
+          maximum: 512
+          example: null
+        parsable:
+          description: '是否可解析，1 为 VAST 资源;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+          example: 0
+      type: object
+    AdsApp:
+      title: AdsApp
+      description: AdsApp
+      required:
+        - title
+        - channelId
+      properties:
+        title:
+          description: '应用名称，最长 255 ，最短 3 ；.eg: `测试应用`'
+          type: string
+          maximum: 255
+          minimum: 3
+          example: 测试应用
+        alias:
+          description: '应用别名，最长 50 ； .eg: `测试应用别名`'
+          type: string
+          default: ''
+          maximum: 50
+          example: 测试应用别名
+        bundleId:
+          description: '包名，最长 100 ； .eg: `测试包名`'
+          type: string
+          default: ''
+          maximum: 100
+          example: 测试包名
+        website:
+          description: '开发者网址，最长 100 ； .eg: `http://swagger.adid.fun/`'
+          type: string
+          default: ''
+          maximum: 100
+          example: 'http://swagger.adid.fun/'
+        channelId:
+          description: '应用所属渠道: 必须为 int 必须大于 0;  .eg: `1`'
+          type: integer
+          format: int32
+          default: '1'
+          minimum: 1
+          example: 1
+        status:
+          description: '0: 关闭; 1: 开启; 9: 测试; -1: 删除;  .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - -1
+            - 0
+            - 1
+            - 9
+          example: 0
+        auditStatus:
+          description: '应用状态，0: 未审核; 1: 审核通过; 2: 审核失败; 3: 暂停; 4: 关闭; .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+          example: 0
+        dailyLimit:
+          description: '每日限额;  .eg: `3000.00`'
+          type: number
+          format: float
+          minimum: 0
+      type: object
+    AdsAsset:
+      title: AdsAsset
+      description: AdsAsset
+      required:
+        - title
+        - timeStart
+        - timeEnd
+        - userId
+      properties:
+        title:
+          description: '素材名称，最长 255 ，最短 3 ；.eg: `测试素材`'
+          type: string
+          maximum: 255
+          minimum: 3
+          example: 测试素材
+        alias:
+          description: '素材别名，最长 50 ； .eg: `测试素材别名`'
+          type: string
+          default: ''
+          maximum: 50
+          example: 测试素材别名
+        timeStart:
+          description: '开启时间，格式化日期字符串（只支持 Y-m-d H:i:s ）； .eg: `2019-10-12 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-12 00:00:00'
+        timeEnd:
+          description: '结束时间，格式化日期字符串（只支持 Y-m-d H:i:s ）； .eg: `2019-12-29 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-29 23:59:59'
+        userId:
+          description: '用户id，必须为数字，必须大于 0 ； .eg: `6379`'
+          type: integer
+          format: int32
+          minimum: 1
+          example: 1
+        budget:
+          description: '预算； .eg: `1203.32`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+        budgetSchema:
+          description: '预算分配方案； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        progress:
+          description: '投放进度，百分比，该字段动态更新； .eg: `24.32`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+        workTimeSwitch:
+          description: '是否全天，0: 是; 1: 否; .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+        workTime:
+          description: '广告素材投放时间段； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        schedule:
+          description: '排量； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        monitor:
+          description: '监测URLs； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        status:
+          description: '0: 关闭; 1: 开启; 9: 测试; -1: 删除;  .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - -1
+            - 0
+            - 1
+            - 9
+          example: 0
+        extra:
+          description: '扩展设置； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        reConf:
+          description: 'rules engine config; .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        priority:
+          description: '优先级； .eg: `6`'
+          type: integer
+          format: int32
+          default: 6
+          maximum: 9
+          minimum: 0
+          example: 6
+        mgtvVar:
+          description: '芒果tv的参数集； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        formatId:
+          description: '广告形式 ID； .eg: `6`'
+          type: integer
+          format: int32
+          default: 0
+          maximum: 9999
+          minimum: 0
+          example: 9
+        supConf:
+          description: '矩阵-光芒广告素材配置； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        supSwitch:
+          description: '矩阵-光芒广告素材状态； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+        supStatus:
+          description: '辅助渠道启停状态（ 0: 关闭; 1: 正在执行; 2: 执行完成; 3: 中止; ）； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        supApp:
+          description: '辅助渠道； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        monitorType:
+          description: '监测方式（ 0: 无; 1: 常规第三方监测; 2: 无第三方监测; 3: BAS-PDB; ）； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        assetWidth:
+          description: '素材宽； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        assetHeight:
+          description: '素材高； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        filesize:
+          description: 'byte; .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        duration:
+          description: '时长，单位：秒； .eg: `15.12`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+          example: 0
+        mimetype:
+          description: 'MIME Type: 最长 50 ； .eg: `video/mp4`'
+          type: string
+          default: ''
+          maximum: 50
+          example: null
+        url:
+          description: '资源地址，内部资源使用相对地址，最长 512 ； .eg: `http://www.mgtv.com/l/100027673/6918112.html`'
+          type: string
+          default: ''
+          maximum: 512
+          example: null
+        cover:
+          description: '资源封面 - 缩略图 使用相对地址，最长 512 ； .eg: `/upload/asset/fe/fee9551f16e7ef55249763f99549ea97.jpg`'
+          type: string
+          default: ''
+          maximum: 512
+          example: null
+        parsable:
+          description: '是否可解析，1 为 VAST 资源； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+      type: object
+    AdsCampaign:
+      title: AdsCampaign
+      description: AdsCampaign
+      required:
+        - title
+        - timeStart
+        - timeEnd
+        - userId
+      properties:
+        title:
+          description: '营销活动名称，最长 255 ，最短 3 ；.eg: `测试营销活动`'
+          type: string
+          maximum: 255
+          minimum: 3
+          example: 测试营销活动
+        alias:
+          description: '营销活动别名，最长 50 ； .eg: `测试营销活动别名`'
+          type: string
+          default: ''
+          maximum: 50
+          example: 测试营销活动别名
+        timeStart:
+          description: '开启时间，格式化日期字符串（只支持 Y-m-d H:i:s ）； .eg: `2019-10-12 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-12 00:00:00'
+        timeEnd:
+          description: '结束时间，格式化日期字符串（只支持 Y-m-d H:i:s ）； .eg: `2019-12-29 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-29 23:59:59'
+        userId:
+          description: '用户id，必须为数字，必须大于 0 ； .eg: `6379`'
+          type: integer
+          format: int32
+          minimum: 1
+          example: 1
+        budget:
+          description: '预算； .eg: `1203.32`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+        budgetSchema:
+          description: '预算分配方案； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        progress:
+          description: '投放进度，百分比，该字段动态更新； .eg: `24.32`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+        workTimeSwitch:
+          description: '是否全天，0: 是; 1: 否; .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+        workTime:
+          description: '营销活动投放时间段； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        schedule:
+          description: '排量； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        monitor:
+          description: '监测URLs； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        status:
+          description: '0: 关闭; 1: 开启; 9: 测试; -1: 删除;  .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - -1
+            - 0
+            - 1
+            - 9
+          example: 0
+        extra:
+          description: '扩展设置； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        reConf:
+          description: 'rules engine config; .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        priority:
+          description: '优先级； .eg: `6`'
+          type: integer
+          format: int32
+          default: 6
+          maximum: 9
+          minimum: 0
+          example: 6
+        mgtvVar:
+          description: '芒果tv的参数集； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        formatId:
+          description: '广告形式 ID； .eg: `6`'
+          type: integer
+          format: int32
+          default: 0
+          maximum: 9999
+          minimum: 0
+          example: 9
+        supConf:
+          description: '矩阵-光芒营销活动配置； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        supSwitch:
+          description: '矩阵-光芒营销活动状态； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+        supStatus:
+          description: '辅助渠道启停状态（ 0: 关闭; 1: 正在执行; 2: 执行完成; 3: 中止; ）； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        supApp:
+          description: '辅助渠道； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        monitorType:
+          description: '监测方式（ 0: 无; 1: 常规第三方监测; 2: 无第三方监测; 3: BAS-PDB; ）； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        assetWidth:
+          description: '素材宽； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        assetHeight:
+          description: '素材高； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        filesize:
+          description: 'byte; .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        duration:
+          description: '时长，单位：秒； .eg: `15.12`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+          example: 0
+        mimetype:
+          description: 'MIME Type: 最长 50 ； .eg: `video/mp4`'
+          type: string
+          default: ''
+          maximum: 50
+          example: null
+        url:
+          description: '资源地址，内部资源使用相对地址，最长 512 ； .eg: `http://www.mgtv.com/l/100027673/6918112.html`'
+          type: string
+          default: ''
+          maximum: 512
+          example: null
+        cover:
+          description: '资源封面 - 缩略图 使用相对地址，最长 512 ； .eg: `/upload/asset/fe/fee9551f16e7ef55249763f99549ea97.jpg`'
+          type: string
+          default: ''
+          maximum: 512
+          example: null
+        parsable:
+          description: '是否可解析，1 为 VAST 资源； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+      type: object
+    AdsGroup:
+      title: AdsGroup
+      description: AdsGroup
+      required:
+        - title
+        - timeStart
+        - timeEnd
+        - userId
+      properties:
+        title:
+          description: '广告组名称，最长 255 ，最短 3 ；.eg: `测试广告组`'
+          type: string
+          maximum: 255
+          minimum: 3
+          example: 测试广告组
+        alias:
+          description: '广告组别名，最长 50 ； .eg: `测试广告组别名`'
+          type: string
+          default: ''
+          maximum: 50
+          example: 测试广告组别名
+        timeStart:
+          description: '开启时间，格式化日期字符串（只支持 Y-m-d H:i:s ）； .eg: `2019-10-12 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-12 00:00:00'
+        timeEnd:
+          description: '结束时间，格式化日期字符串（只支持 Y-m-d H:i:s ）； .eg: `2019-12-29 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-29 23:59:59'
+        userId:
+          description: '用户id，必须为数字，必须大于 0 ； .eg: `6379`'
+          type: integer
+          format: int32
+          minimum: 1
+          example: 1
+        budget:
+          description: '预算； .eg: `1203.32`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+        budgetSchema:
+          description: '预算分配方案； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        progress:
+          description: '投放进度，百分比，该字段动态更新； .eg: `24.32`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+        workTimeSwitch:
+          description: '是否全天，0: 是; 1: 否; .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+        workTime:
+          description: '广告组投放时间段； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        schedule:
+          description: '排量； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        monitor:
+          description: '监测URLs； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        status:
+          description: '0: 关闭; 1: 开启; 9: 测试; -1: 删除;  .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - -1
+            - 0
+            - 1
+            - 9
+          example: 0
+        extra:
+          description: '扩展设置； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        reConf:
+          description: 'rules engine config; .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        priority:
+          description: '优先级； .eg: `6`'
+          type: integer
+          format: int32
+          default: 6
+          maximum: 9
+          minimum: 0
+          example: 6
+        mgtvVar:
+          description: '芒果tv的参数集； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        formatId:
+          description: '广告形式 ID； .eg: `6`'
+          type: integer
+          format: int32
+          default: 0
+          maximum: 9999
+          minimum: 0
+          example: 9
+        supConf:
+          description: '矩阵-光芒广告组配置； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        supSwitch:
+          description: '矩阵-光芒广告组状态； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+        supStatus:
+          description: '辅助渠道启停状态（ 0: 关闭; 1: 正在执行; 2: 执行完成; 3: 中止; ）； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        supApp:
+          description: '辅助渠道； .eg: `[]`'
+          type: array
+          items: {  }
+          default: []
+          example: []
+        monitorType:
+          description: '监测方式（ 0: 无; 1: 常规第三方监测; 2: 无第三方监测; 3: BAS-PDB; ）； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        assetWidth:
+          description: '素材宽； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        assetHeight:
+          description: '素材高； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        filesize:
+          description: 'byte; .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+          example: 0
+        duration:
+          description: '时长，单位：秒； .eg: `15.12`'
+          type: number
+          format: float
+          default: 0
+          minimum: 0
+          example: 0
+        mimetype:
+          description: 'MIME Type: 最长 50 ； .eg: `video/mp4`'
+          type: string
+          default: ''
+          maximum: 50
+          example: null
+        url:
+          description: '资源地址，内部资源使用相对地址，最长 512 ； .eg: `http://www.mgtv.com/l/100027673/6918112.html`'
+          type: string
+          default: ''
+          maximum: 512
+          example: null
+        cover:
+          description: '资源封面 - 缩略图 使用相对地址，最长 512 ； .eg: `/upload/asset/fe/fee9551f16e7ef55249763f99549ea97.jpg`'
+          type: string
+          default: ''
+          maximum: 512
+          example: null
+        parsable:
+          description: '是否可解析，1 为 VAST 资源； .eg: `0`'
+          type: integer
+          format: int32
+          default: 0
+          enum:
+            - 0
+            - 1
+          example: 0
+      type: object
+    AdsStruct:
+      title: AdsStruct
+      description: 'AdsCampaign, AdsGroup, AdsAd, AdsAsset 通用实体数据结构'
+      required:
+        - title
+        - timeStart
+        - timeEnd
+        - userId
+      properties:
+        title:
+          description: '广告标题: 最长 255，最短 3;  .eg: `测试广告标题`'
+          type: string
+          maximum: 255
+          minimum: 3
+          example: 测试广告标题
+        alias:
+          description: '广告别名: 最长 255;  .eg: `测试广告别名`'
+          type: string
+          maximum: 255
+          example: 测试广告别名
+        timeStart:
+          description: '开启时间: 格式化日期字符串（只支持 Y-m-d H:i:s）;  .eg: `2019-10-12 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-12 00:00:00'
+        timeEnd:
+          description: '结束时间: 格式化日期字符串（只支持 Y-m-d H:i:s）;  .eg: `2019-12-29 18:47:11`'
+          type: string
+          format: datetime
+          example: '2019-10-29 23:59:59'
+        userId:
+          description: '用户id: 必须为 int 必须大于 0;  .eg: `6379`'
+          type: integer
+          format: int32
+          minimum: 1
+          example: 1
+        budget:
+          description: '预算;  .eg: `1203.32`'
+          type: number
+          format: float
+          minimum: 0
+        budgetSchema:
+          description: '预算分配方案;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        progress:
+          description: '投放进度，百分比，该字段动态更新;  .eg: `24.32`'
+          type: number
+          format: float
+          minimum: 0
+        workTimeSwitch:
+          description: '是否全天 0：是；1：否;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+          example: 0
+        workTime:
+          description: '广告投放时间段;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        schedule:
+          description: '排量;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        monitor:
+          description: '监测URLs;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        status:
+          description: '0: 关闭 1:开启 9:测试 -1: 删除;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - -1
+            - 0
+            - 1
+            - 9
+          example: 0
+        extra:
+          description: '扩展设置;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        reConf:
+          description: 'rules engine config;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        priority:
+          description: '优先级;  .eg: `6`'
+          type: integer
+          format: int32
+          maximum: 9
+          minimum: 0
+          example: 6
+        mgtvVar:
+          description: '芒果tv的参数集;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        formatId:
+          description: '广告形式 ID;  .eg: `6`'
+          type: integer
+          format: int32
+          maximum: 9999
+          minimum: 0
+          example: 9
+        supConf:
+          description: '矩阵-光芒广告配置;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        supSwitch:
+          description: '矩阵-光芒广告状态;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+          example: 0
+        supStatus:
+          description: '辅助渠道启停状态(0: 关闭; 1: 正在执行; 2: 执行完成; 3: 中止;);  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        supApp:
+          description: '辅助渠道;  .eg: `[]`'
+          type: array
+          items: {  }
+          example: []
+        monitorType:
+          description: '监测方式(0:无; 1:常规第三方监测; 2:无第三方监测; 3:BAS-PDB);  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 0
+        assetWidth:
+          description: '素材宽;  .eg: `0`'
+          type: integer
+          format: int32
+          minimum: 0
+          example: 0
+        assetHeight:
+          description: '素材高;  .eg: `0`'
+          type: integer
+          format: int32
+          minimum: 0
+          example: 0
+        filesize:
+          description: 'byte;  .eg: `0`'
+          type: integer
+          format: int32
+          minimum: 0
+          example: 0
+        duration:
+          description: '时长，单位：秒;  .eg: `15.12`'
+          type: number
+          format: float
+          minimum: 0
+          example: 0
+        mimetype:
+          description: 'MIME Type: 最长 50;  .eg: `video/mp4`'
+          type: string
+          maximum: 50
+          example: null
+        url:
+          description: '资源地址，内部资源使用相对地址: 最长 512;  .eg: `http://www.mgtv.com/l/100027673/6918112.html`'
+          type: string
+          maximum: 512
+          example: null
+        cover:
+          description: '资源封面 - 缩略图 使用相对地址: 最长 512;  .eg: `/upload/asset/fe/fee9551f16e7ef55249763f99549ea97.jpg`'
+          type: string
+          maximum: 512
+          example: null
+        parsable:
+          description: '是否可解析，1 为 VAST 资源;  .eg: `0`'
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+          example: 0
+      type: object
+    ExcelBulk:
+      title: ExcelBulk
+      description: ExcelBulk
+      required:
+        - type
+        - model
+      properties:
+        type:
+          description: '实体类型，campaign: 系列 ; group: 广告组 ; ad: 广告 ; asset: 广告素材 ;'
+          type: string
+          enum:
+            - campaign
+            - group
+            - ad
+            - asset
+          example: campaign
+        model:
+          description: 实体数据机构，类似广告、广告组
+          example: '#/components/schemas/AdsStruct'
+          $ref: '#/components/schemas/AdsStruct'
+        child:
+          description: 子模块数组，每个子模块和当前模块的数据结构一样
+          type: array
+          items:
+            properties:
+              type:
+                description: '实体类型，campaign: 系列 ; group: 广告组 ; ad: 广告 ; asset: 广告素材 ;'
+                type: string
+                enum:
+                  - campaign
+                  - group
+                  - ad
+                  - asset
+                example: group
+              model:
+                description: 实体数据机构，类似广告、广告组
+                $ref: '#/components/schemas/AdsStruct'
+              child:
+                description: 子模块数组，每个子模块和当前模块的数据结构一样
+                type: array
+                items: {  }
+                example: '[]'
+            type: object
+      type: object
+    Error500:
+      title: Error500
+      description: 'Reponse Error 500'
+      required:
+        - status
+        - error
+      properties:
+        status:
+          description: 错误码
+          type: integer
+          format: int32
+          default: '500'
+          example: '500'
+        error:
+          description: 错误描述
+          type: string
+          format: string
+          default: 在数据库中找不到匹配的数据
+          example: 在数据库中找不到匹配的数据
+      type: object
