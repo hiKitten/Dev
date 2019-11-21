@@ -562,7 +562,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error500'
-  /execl/bulk:
+  /excel/bulk:
     post:
       tags:
         - ExcelBulk
