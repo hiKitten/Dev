@@ -13,6 +13,9 @@ servers:
   -
     url: 'http://localhost:21306'
     description: 'Local 测试环境'
+  -
+    url: 'http://172.31.0.113:21306'
+    description: 刘宇航本机
 paths:
   '/ads/ad/{id}':
     get:
