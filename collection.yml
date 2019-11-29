@@ -5,7 +5,7 @@ info:
   version: 0.1.0
 servers:
   -
-    url: 'http://172.31.0.113:38306'
+    url: 'http://192.168.89.102:38306'
     description: 刘宇航本机
 paths:
   /clue/bulk:
