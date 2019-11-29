@@ -14,7 +14,7 @@ paths:
         - ClueBulk
       summary: 批量导入广告线索
       operationId: ClueBulk
-       consumes:
+      consumes:
       - "application/json"
       produces:
       - "application/json"
