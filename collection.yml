@@ -16,29 +16,24 @@ paths:
       operationId: ClueBulk
       consumes:
       - "application/json"
-      produces:
-      - "application/json"
       parameters:
-        -
-          name: url
-          in: path
+        - name: url
+          in: body
           required: true
           schema:
             type: string
-            example: 'http://git.trac.cn'
-        -
-          name: head
-          in: path
+            example: 'http://mtrace.play.aiseet.atianqi.com/mkvcollect?a=4.9.0.1018&s=4.3.1.003&k=ACJR7JT12C16&n=4'
+        - name: head
+          in: body
           required: true
           schema:
             type: object
-            example: []
-        -
-          name: extra
-          in: path
+            example: {}
+        - name: extra
+          in: body
           schema:
             type: object
-            example: []
+            example: {}
       responses:
         '200':
           description: Response
