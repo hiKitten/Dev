@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: 'collection API'
+  description: 'collection 接口文档'
+  version: 0.1.0
+servers:
+  -
+    url: 'http://172.31.0.113:38306'
+    description: 刘宇航本机
+paths:
+  /clue/bulk:
+    post:
+      tags:
+        - ClueBulk
+      summary: 批量导入广告线索
+      operationId: ClueBulk
+      parameters:
+        -
+          name: url
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 'http://git.trac.cn'
+        -
+          name: head
+          in: path
+          required: true
+          schema:
+            type: object
+            example: []
+        -
+          name: extra
+          in: path
+          schema:
+            type: object
+            example: []
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
