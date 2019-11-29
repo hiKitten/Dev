@@ -14,26 +14,12 @@ paths:
         - ClueBulk
       summary: 批量导入广告线索
       operationId: ClueBulk
-      consumes:
-      - "application/json"
-      parameters:
-        - name: url
-          in: body
-          required: true
-          schema:
-            type: string
-            example: 'http://mtrace.play.aiseet.atianqi.com/mkvcollect?a=4.9.0.1018&s=4.3.1.003&k=ACJR7JT12C16&n=4'
-        - name: head
-          in: body
-          required: true
-          schema:
-            type: object
-            example: {}
-        - name: extra
-          in: body
-          schema:
-            type: object
-            example: {}
+      requestBody:
+        description: 批量导入广告线索
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody'
       responses:
         '200':
           description: Response
@@ -42,3 +28,46 @@ paths:
               schema: {  }
         '500':
           description: 错误
+          content:
+            application/json:
+              schema: {  }
+components:
+  schemas:
+    RequestBody:
+      title: RequestBody
+      description: 请求内容
+      properties:
+        url:
+          type: string
+          example: 'http://mtrace.play.aiseet.atianqi.com/mkvcollect?a=4.9.0.1018&s=4.3.1.003&k=ACJR7JT12C16&n=4'
+        head:
+          $ref: '#/components/schemas/RequestHeader'
+        extra:
+          type: object
+      type: object
+    RequestHeader:
+      title: RequestHeader
+      description: 请求头
+      properties:
+        Host:
+          type: string
+          example: mtrace.play.aiseet.atianqi.com
+        Content-Type:
+          type: string
+          example: application/octet-stream
+        Connection:
+          type: string
+          example: Keep-Alive
+        Content-Encoding:
+          type: string
+          example: gzip
+        Content-Length:
+          type: string
+          example: '2109'
+        User-Agent:
+          type: string
+          example: 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; ZIDOO_X9S Build/MOB30J)'
+        Accept-Encoding:
+          type: string
+          example: gzip
+      type: object
