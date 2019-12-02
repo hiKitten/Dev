@@ -5,8 +5,8 @@ info:
   version: 0.1.0
 servers:
   -
-    url: 'http://192.168.89.102:38306'
-    description: 刘宇航本机
+    url: 'http://172.31.0.50:38306'
+    description: 虚拟机
 paths:
   /clue/bulk:
     post:
