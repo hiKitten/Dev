@@ -32,7 +32,7 @@ paths:
             application/json:
               schema: {  }
   /brand/all:
-    post:
+    get:
       tags:
         - getAllBrand
       summary: 获取所有品牌
