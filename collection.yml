@@ -37,18 +37,13 @@ paths:
         - getAllBrand
       summary: 获取所有品牌
       operationId: getAllBrand
-      requestBody:
-        description: 获取所有品牌
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AssetBrand'
       responses:
         '200':
           description: Response
           content:
             application/json:
-              schema: {  }
+              schema:
+                $ref: '#/components/schemas/BrandList'
         '500':
           description: 错误
           content:
