@@ -8,6 +8,52 @@ servers:
     url: 'http://172.31.0.50:38306'
     description: 虚拟机
 paths:
+  /asset/brand:
+    post:
+      tags:
+        - setAssetBrand
+      summary: 设置广告素材的品牌
+      operationId: setAssetBrand
+      requestBody:
+        description: 设置广告素材的品牌
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetBrand'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema: {  }
+  /brand/all:
+    post:
+      tags:
+        - getAllBrand
+      summary: 获取所有品牌
+      operationId: getAllBrand
+      requestBody:
+        description: 获取所有品牌
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetBrand'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema: {  }
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema: {  }
   /clue/bulk:
     post:
       tags:
@@ -33,6 +79,33 @@ paths:
               schema: {  }
 components:
   schemas:
+    AssetBrand:
+      title: AssetBrand
+      description: 请求内容
+      properties:
+        assetid:
+          type: integer
+        brandid:
+          type: integer
+      type: object
+    Brand:
+      title: Brand
+      description: 'Brand 模型'
+      properties:
+        brandid:
+          type: integer
+        name:
+          type: string
+      type: object
+    BrandList:
+      title: BrandList
+      description: 品牌列表
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/Brand'
+      type: object
     RequestBody:
       title: RequestBody
       description: 请求内容
