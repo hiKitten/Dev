@@ -8,24 +8,58 @@ servers:
     url: 'http://172.31.0.50:38306'
     description: 虚拟机
 paths:
-  /asset/brand:
-    post:
+  /asset:
+    put:
       tags:
-        - setAssetBrand
-      summary: 设置广告素材的品牌
-      operationId: setAssetBrand
+        - updateAsset
+      summary: 更新广告素材
+      operationId: updateAsset
       requestBody:
-        description: 设置广告素材的品牌
+        description: 更新广告素材
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetBrand'
+              $ref: '#/components/schemas/AssetEdit'
       responses:
         '200':
           description: Response
           content:
             application/json:
+              schema:
+                $ref: '#/components/schemas/AssetDetail'
+        '500':
+          description: 错误
+          content:
+            application/json:
               schema: {  }
+  /asset/list:
+    get:
+      tags:
+        - getAssetList
+      summary: 获取广告素材列表
+      operationId: getAssetList
+      parameters:
+        -
+          name: page
+          in: query
+          description: 第几页
+          schema:
+            type: integer
+            example: 1
+        -
+          name: pagesize
+          in: query
+          description: 每页多少条数据
+          schema:
+            type: integer
+            example: 20
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetList'
         '500':
           description: 错误
           content:
@@ -72,8 +106,43 @@ paths:
           content:
             application/json:
               schema: {  }
+  /goods/list:
+    get:
+      tags:
+        - getGoodsList
+      summary: 获取商品列表
+      operationId: getGoodsList
+      parameters:
+        -
+          name: brandid
+          in: query
+          description: '品牌 ID'
+          schema:
+            type: integer
+            example: 3397
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoodsList'
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema: {  }
 components:
   schemas:
+    App:
+      title: App
+      description: 媒体模型
+      properties:
+        appid:
+          type: integer
+        tite:
+          type: string
+      type: object
     AssetBrand:
       title: AssetBrand
       description: 请求内容
@@ -82,6 +151,45 @@ components:
           type: integer
         brandid:
           type: integer
+      type: object
+    AssetDetail:
+      title: AssetDetail
+      description: 广告素材详情
+      properties:
+        assetid:
+          type: integer
+        url:
+          type: string
+        url_hash:
+          type: string
+        ctime:
+          type: string
+        app:
+          $ref: '#/components/schemas/App'
+        brand:
+          $ref: '#/components/schemas/Brand'
+        goods:
+          $ref: '#/components/schemas/Goods'
+      type: object
+    AssetEdit:
+      title: AssetEdit
+      description: 请求内容
+      properties:
+        assetid:
+          type: integer
+        brandid:
+          type: integer
+        goodsid:
+          type: integer
+      type: object
+    AssetList:
+      title: AssetList
+      description: 广告线索列表
+      properties:
+        asset:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetDetail'
       type: object
     Brand:
       title: Brand
@@ -100,6 +208,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Brand'
+      type: object
+    Goods:
+      title: Goods
+      description: 商品模型
+      properties:
+        goodsid:
+          type: integer
+        name:
+          type: string
+      type: object
+    GoodsList:
+      title: GoodsList
+      description: 商品列表
+      properties:
+        goods:
+          type: array
+          items:
+            $ref: '#/components/schemas/Goods'
       type: object
     RequestBody:
       title: RequestBody
