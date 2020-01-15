@@ -132,8 +132,41 @@ paths:
           content:
             application/json:
               schema: {  }
+  /goods:
+    post:
+      tags:
+        - addGoods
+      summary: 添加商品
+      operationId: addGoods
+      requestBody:
+        description: 添加商品
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddGoods'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Goods'
+        '500':
+          description: 错误
+          content:
+            application/json:
+              schema: {  }
 components:
   schemas:
+    AddGoods:
+      title: AddGoods
+      description: 添加商品
+      properties:
+        name:
+          type: string
+        brandid:
+          type: integer
+      type: object
     App:
       title: App
       description: 媒体模型
@@ -217,6 +250,8 @@ components:
           type: integer
         name:
           type: string
+        brandid:
+          type: integer
       type: object
     GoodsList:
       title: GoodsList
